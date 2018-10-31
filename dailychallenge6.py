@@ -1,4 +1,4 @@
-# from dailycodingchallenge.com
+# from dailycodingproblem.com
 #
 # Daily Challenge # 6
 # An XOR linked list is a more memory efficient doubly linked list. Instead of each node holding next and prev fields, 

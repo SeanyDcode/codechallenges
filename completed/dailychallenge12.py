@@ -14,25 +14,26 @@
 # What if, instead of being able to climb 1 or 2 steps at a time, you could climb any number from a set of 
 # positive integers X? For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
 
-rescurseLastStep(last):
-    
+def staircase(n, X):
+    # create list for storing potential combinations for each step
+    cache = [0 for _ in range(n + 1)]
+    # initialize for step 1
+    cache[0] = 1
+    # add value for each step based on value for previous step
+    for i in range(n + 1):
+        cache[i] += sum(cache[i - x] for x in X if i - x > 0)
+        cache[i] += 1 if i in X else 0
+    # return last value from list which is the total number of possible combinations
+    return cache[-1]
 
 
 def main():
-    # recursive function for last step?
-    
-    uniqueLists = []
-    x = [1, 2]
-    n = 4
+    X = [1, 3, 5]
+    n = 9
 
-    # iterate through possible last steps
-    for i in x:
-      
-      # call recursive function to find possible unique steps
-      recurseLastStep(x[i])
+    # call recursive function to find uniqueCount of possible step combinations
+    print(staircase(n, X))
     
     
-    
-  
 if __name__ == "__main__":
     main()

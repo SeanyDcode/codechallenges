@@ -14,13 +14,33 @@
 # What if, instead of being able to climb 1 or 2 steps at a time, you could climb any number from a set of 
 # positive integers X? For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
 
-rescurseLastStep(last):
+def recurseSteps(steps, strides, returnList):
     
+    # if no steps remaining, return final list
+    if steps == 0:
+        return returnList
+    
+    # if steps remaining, continue to count step combinations
+    else:
+        
+        # for each potential step combination
+        for stride in strides:
+            
+            # CHECK FOR POTENTIAL DIVISION ABILITY WITH REMAINING STEPS
+            
+            # check to make sure stride is not larger than total steps remaining
+            if steps - stride >= 0:
+                # subtract stride from total steps remaining
+                steps -= stride
+                # add stride to returnList
+                returnList.append(stride)
+                # continue to recurse with function
+                recurseSteps(steps, strides, returnList)
+            else:
+                pass
 
 
 def main():
-    # recursive function for last step?
-    
     uniqueLists = []
     x = [1, 2]
     n = 4
@@ -29,7 +49,7 @@ def main():
     for i in x:
       
       # call recursive function to find possible unique steps
-      recurseLastStep(x[i])
+      uniqueLists.append(recurseSteps(n, x, []))
     
     
     

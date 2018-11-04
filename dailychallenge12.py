@@ -13,3 +13,26 @@
 # 2, 2
 # What if, instead of being able to climb 1 or 2 steps at a time, you could climb any number from a set of 
 # positive integers X? For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time.
+
+rescurseLastStep(last):
+    
+
+
+def main():
+    # recursive function for last step?
+    
+    uniqueLists = []
+    x = [1, 2]
+    n = 4
+
+    # iterate through possible last steps
+    for i in x:
+      
+      # call recursive function to find possible unique steps
+      recurseLastStep(x[i])
+    
+    
+    
+  
+if __name__ == "__main__":
+    main()
